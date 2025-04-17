@@ -6,20 +6,36 @@ class Dog():
     
     def bark(self):
         print(f"{self.name} barks!")
+    
+    def sleeping(self):
+        print(f"{self.name} is sleeping...")
 
-class Service_dog(Dog):
-    def __init__(self, service_type):
+class Service_Dog(Dog):
+    def __init__(self, name, breed, age, service_type):
+        super().__init__(name, breed, age)
         self.service_type = service_type
+        self.trained = False
     
     def assist(self):
         print(f"{self.name} assists as a {self.service_type}!")
     
     def bark(self):
         print(f"{self.name} barks loudly to alert!")
+        
+    def train(self):
+        print(f"{self.name} is in training")
+        self.trained = True
+    
+    def alert(self):
+        if self.trained:
+            print(f"{self.name} alerts you!")
 
 dog_1 = Dog("Wufy", "Husky", 11)
 dog_1.bark()
 
-dog_2 = Service_dog("Snow", "Cat", 12, "Police Dog")
+dog_2 = Service_Dog("Snow", "Cat", 12, "Police Dog")
 dog_2.assist()
-dog_2.bark
+dog_2.bark()
+dog_2.train()
+dog_2.alert()
+
